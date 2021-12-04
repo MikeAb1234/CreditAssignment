@@ -1,0 +1,49 @@
+package com.company;
+
+import java.util.Scanner;
+import java.lang.Long;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        Scanner credit_cardNumber = new Scanner(System.in);
+
+        System.out.print("Enter a Credit Card Number: ");
+        long number;
+        number = credit_cardNumber.nextLong();
+        System.out.print("Credit Card Number: " + number);
+        int sum = 0;
+
+        String cardType = String.valueOf(number);
+
+        if (cardType.startsWith("3")) {
+            System.out.print(" American Express");
+        }
+            else if (cardType.startsWith("4")) {
+                System.out.print(" Visa");
+            } else if (cardType.startsWith("5")) {
+                System.out.print(" MasterCard");
+            }
+
+            while (number > 0)
+
+                number = number / 10;
+
+            if (number % 2 != 0) {
+                number *= 2;
+            }
+
+            if (number > 9) {
+                number = (number % 10) + 1;
+            } else
+                number *= 1;
+
+            sum += number;
+
+            if (sum % 10 == 0) {
+                System.out.println(" is a valid card number.");
+            } else
+                System.out.println(" is an invalid card number. Please try again!");
+        }
+    }
